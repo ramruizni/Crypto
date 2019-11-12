@@ -1,31 +1,35 @@
 package MyImps
 
+import Exam.bigInt
 import ViewedInClass.gcd
 import ViewedInClass.phiEuler
 import java.lang.RuntimeException
+import java.math.BigInteger
 import kotlin.math.pow
 
+// if a and n co-prime
 fun eulerTheorem(a: Int, mod: Int): Boolean {
-    if (gcd(a, mod) != 1) throw RuntimeException("a and n must be coprime")
+    if (gcd(a, mod) != 1) throw RuntimeException("a and n must be coprime") as Throwable
     val power = a.toDouble().pow(phiEuler(mod))
     return power.toInt() % mod == 1 % mod
 }
 
-fun smallFermatTheorem(a: Int, mod: Int): Int {
-    // assuming mod is prime
-    // val power = a.toDouble().pow(mod - 1)
-    // return power.toInt() % mod == 1 % mod
-    return 1 % mod
+// if a and p are integers and p is prime
+fun smallFermatTheorem(a: Int, p: Int): Boolean {
+    val power = a.toDouble().pow(p - 1)
+    return power.toInt() % p == 1 % p
 }
 
-fun multiplicativeInverse(a: Int, mod: Int): Int {
-    return a.toDouble().pow(mod - 2).toInt()
+// not sure if conditions from
+// previous theorems must be met
+fun multiplicativeInverse(a: Int, p: Int): Int {
+    return a.toDouble().pow(p - 2).toInt()
 }
 
 fun orderOf(a: Int, mod: Int): Int {
     for (i in 1 until mod) {
-        val powerMod = a.toBigInteger().modPow(i.toBigInteger(), mod.toBigInteger())
-        if (powerMod == 1.toBigInteger()) return i
+        val powerMod = a.bigInt().modPow(i.bigInt(), mod.bigInt())
+        if (powerMod == 1.bigInt()) return i
     }
     return mod - 1
 }
@@ -52,5 +56,10 @@ fun main() {
     println(numOfPrimitivesIn(7))
 
     println("----------")
-    println(2.toBigInteger().modPow(9.toBigInteger(), 13.toBigInteger()))
+
+    // Int to Hex
+    println(BigInteger("123").toString(16))
+
+    // 45 from a binary input
+    println(BigInteger("101101", 2))
 }

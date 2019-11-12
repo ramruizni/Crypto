@@ -13,7 +13,7 @@ fun main() {
 
     var e: Int
     do e = rand.nextInt(phi - 2) + 2
-    while (e.bigInt().gcd(phi.bigInt()) != BigInteger.ONE)
+    while (e.bigInt().gcd(phi.bigInt()) != 1.bigInt())
 
     val d = e.bigInt().modInverse(phi.bigInt()).toInt()
     println("Ke ($e, $n)")

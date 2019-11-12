@@ -1,5 +1,6 @@
 package Exam
 
+import ViewedInClass.isProbablyPrime
 import java.math.BigInteger
 import java.security.SecureRandom
 
@@ -11,6 +12,9 @@ fun main() {
     val rand = SecureRandom()
     val p = BigInteger.probablePrime(BIT_LENGTH_2048 / 2, rand)
     val q = BigInteger.probablePrime(BIT_LENGTH_2048 / 2, rand)
+    println(isProbablyPrime(p, 20))
+    println(isProbablyPrime(q, 20))
+
     val n = p * q
 
     val phi = (p - 1.bigInt()) * (q - 1.bigInt())
@@ -24,7 +28,7 @@ fun main() {
     println("Ke ($e, $n)")
     println("Kd ($d, $n)")
 
-    val msg = BigInteger(BIT_LENGTH_2048, rand)
+    val msg = BigInteger(BIT_LENGTH_2048 / 2, rand)
     println("msg $msg")
 
     val enc = msg.modPow(e, n)

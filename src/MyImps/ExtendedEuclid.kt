@@ -2,6 +2,7 @@ package MyImps
 
 import kotlin.math.floor
 
+// Finds gcd(a, b) and (x, y) | gcd(a, b) = a*x + b*y
 fun extendedEuclid(a: Int, b: Int): List<Int> {
     if (b == 0) {
         return listOf(a, 1, 0)

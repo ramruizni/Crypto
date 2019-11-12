@@ -4,12 +4,14 @@ import ViewedInClass.gcd
 import ViewedInClass.getPrimeFactors
 import ViewedInClass.phiEuler
 
+//Zn
 fun intsMod(mod: Int): List<Int> {
     val list = mutableListOf<Int>()
     for(i in 0 until mod) list.add(i)
     return list
 }
 
+//Zn*
 fun multiplicativeGroupOf(mod: Int): List<Int> {
     val list = mutableListOf<Int>()
 

@@ -20,6 +20,8 @@ fun multInv(a: Int, b: Int): Int {
     return x1
 }
 
+// Finds x | x congruent with a1 % n1 and a2 % n2
+// ONLY works if the n's are pairwise co-prime
 fun chineseRemainder(n: IntArray, a: IntArray): Int {
     val prod = n.fold(1) { acc, i -> acc * i }
     var sum = 0
@@ -34,4 +36,6 @@ fun main() {
     val n = intArrayOf(3, 5, 7)
     val a = intArrayOf(2, 3, 2)
     println(chineseRemainder(n, a))
+
+    println()
 }

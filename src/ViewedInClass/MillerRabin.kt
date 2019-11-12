@@ -3,6 +3,9 @@ package ViewedInClass
 import java.math.BigInteger
 import java.util.Random
 
+val bigTwo   = BigInteger.valueOf(2L)
+val bigThree = BigInteger.valueOf(3L)
+
 fun isProbablyPrime(n: BigInteger, k: Int): Boolean {
     require (n > bigTwo && n % bigTwo == BigInteger.ONE) { "Must be odd and greater than 2" }
     var s = 0
@@ -22,19 +25,19 @@ fun isProbablyPrime(n: BigInteger, k: Int): Boolean {
         }
         while(a < bigTwo || a > nn) // make sure it's in the interval [2, n - 1]
 
-        println("Starting point: s=$s, a=$a, d=$d, n=$n")
+        //println("Starting point: s=$s, a=$a, d=$d, n=$n")
 
         var x = a.modPow(d, n)
         if (x == BigInteger.ONE || x == nn) continue
         for (r in 1 until s) {
             x =  (x * x) % n
             if (x == BigInteger.ONE) {
-                println("Got here! $x $a $d $n")
+                //println("Got here! $x $a $d $n")
                 return false
             }
             if (x == nn) break@loop
         }
-        println("Actually got here! $x $a $d $n")
+        //println("Actually got here! $x $a $d $n")
         return false
     }
     return true
