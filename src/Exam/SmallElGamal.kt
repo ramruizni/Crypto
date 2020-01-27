@@ -8,6 +8,7 @@ fun main() {
     val rand = SecureRandom()
 
     val p = 2579
+
     val alpha = primitivesIn(2579).random()
     val x = rand.nextInt(p - 3) + 1
 
@@ -16,7 +17,7 @@ fun main() {
     println("Ke ($p, $alpha, $beta)") // public key
     println("X $x")
 
-    val msg = 1299
+    val msg = 123
 
     val y = (rand.nextInt(p - 3) + 1)
 

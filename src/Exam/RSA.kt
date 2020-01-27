@@ -36,4 +36,15 @@ fun main() {
 
     val dec = enc.modPow(d, n)
     println("dec $dec")
+
+    val text = "RSA is way cool. Sísas mi Ñero"
+    println("text $text")
+
+    val textInt = BigInteger(text.toByteArray())
+    val encText = textInt.modPow(e, n)
+    println("encText $encText")
+
+    val decTextInt = encText.modPow(d, n)
+    val decText = String(decTextInt.toByteArray())
+    println("decText $decText")
 }

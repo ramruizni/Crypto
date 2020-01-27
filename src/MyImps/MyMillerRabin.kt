@@ -1,7 +1,9 @@
 package MyImps
 
+import Exam.BIT_LENGTH_8192
 import Exam.bigInt
 import java.math.BigInteger
+import java.security.SecureRandom
 import java.util.*
 
 fun fermatTest(n: BigInteger, k: Int): Boolean {
@@ -16,9 +18,9 @@ fun fermatTest(n: BigInteger, k: Int): Boolean {
 
         val power = a.modPow(n - 1.bigInt(), n)
         if (power != mod) {
-            println("a: $a")
-            println("mod: $mod")
-            println("powerMod: $power")
+            //println("a: $a")
+            //println("mod: $mod")
+            //println("powerMod: $power")
             return false
         }
     }
@@ -26,7 +28,12 @@ fun fermatTest(n: BigInteger, k: Int): Boolean {
 }
 
 fun main() {
-    println(fermatTest(14.toBigInteger(), 20))
+    println(fermatTest(15.bigInt(), 20))
+    println(fermatTest(7.bigInt(), 20))
+
+    val rand = SecureRandom()
+    val p = BigInteger.probablePrime(BIT_LENGTH_8192, rand)
+
     //println(4.toBigInteger().pow(99) % 100.toBigInteger())
     //println(1 % 100)
 }
